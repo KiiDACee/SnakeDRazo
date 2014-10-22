@@ -92,6 +92,13 @@ function snakeUpdate () {
     else if(snakeDirection == "right"){
         snakeHeadX++;
     }
+    else if(snakeDirection == "left"){
+        snakeHeadX--;
+    }
+    if(snakeDirection == "up"){
+        snakeHeadY--;
+    }
+    
     
     var snakeTail = snake.pop();
     snakeTail.x = snakeHeadX;
@@ -105,7 +112,7 @@ function snakeUpdate () {
  */
 
 
-  function foodInitialize() {
+  function foodInitialize() {44
       food = {
           x: 0,
           y: 0
@@ -136,7 +143,24 @@ function snakeUpdate () {
       if(event.keyCode == "39" && snakeDirection != "left") {
           snakeDirection = "right";
       }
+      else if(event.keyCode == "38" && snakeDirection != "down") {
+          snakeDirection = "up";
+      }
       else if(event.keyCode == "40" && snakeDirection != "up") {
           snakeDirection = "down";
+      }
+      else if(event.keyCode == "37" && snakeDirection != "right") {
+          snakeDirection = "left";
+      }
+  }
+  
+  /*---------------------------------------------------------------------------
+   * Collision Handling
+   * --------------------------------------------------------------------------
+   */
+  
+  function checkFoodCollisions(){
+      if() {
+          
       }
   }
