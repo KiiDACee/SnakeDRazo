@@ -13,6 +13,9 @@ var context;
 var screenWidth;
 var screenHeight;
 
+var gameState;
+
+
 /*-----------------------------------------------------------------------------
  * Executing Game Code
  *-----------------------------------------------------------------------------
@@ -44,9 +47,11 @@ function gameInitialize() {
  
 function gameLoop() {
     gameDraw();
+    if(gameState == "PLAY") {
     snakeUpdate();
     snakeDraw();
     foodDraw();
+    }
 }
 
 function gameDraw() {
@@ -172,8 +177,16 @@ function snakeUpdate () {
   
   function checkWallCollisions(snakeHeadX, snakeHeadY) {
       if(snakeHeadX * snakeSize >= screenWidth || snakeHeadX * snakeSize < 0) {
-          console.log("Wall Collisions");
+       
       }
   }
   
+  /*---------------------------------------------------------------------------
+   * Game State Handling
+   * --------------------------------------------------------------------------
+   */
+  
+  function setState(state) {
+      gameState = state;
+  }
   
