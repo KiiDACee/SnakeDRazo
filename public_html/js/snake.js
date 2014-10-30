@@ -15,6 +15,7 @@ var screenHeight;
 
 var gameState;
 var gameOverMenu
+var restartButton
 
 
 /*-----------------------------------------------------------------------------
@@ -45,6 +46,9 @@ function gameInitialize() {
     gameOverMenu = document.getElementById("gameOver");
     centerMenuPosition(gameOverMenu);
     
+    restartButton = document.getElementById("restartButton");
+    restartButton. addEventListener("click", gameRestart );
+    
     setState("PLAY")
 
 }
@@ -63,6 +67,12 @@ function gameLoop() {
 function gameDraw() {
     context.fillStyle = "rgb(148, 136, 136 )";
     context.fillRect(0, 0, screenWidth, screenHeight);
+}
+
+function gameRestart() {
+    snakeInitialize();
+    foodInitialize();
+    setState("PLAY");
 }
 
 /*-----------------------------------------------------------------------------
